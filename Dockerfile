@@ -1,20 +1,16 @@
-# Use an official Node.js image as a base
-FROM node:18
+# FROM node:18
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# EXPOSE 3000
+# CMD ["npm", "start"]
 
-# Set the working directory inside the container
+
+FROM node:18-alpine
 WORKDIR /app
-
-# Copy the package.json and package-lock.json files
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the entire React app to the container
 COPY . .
-
-# Expose the port the app runs on
 EXPOSE 3000
-
-# Start the app
 CMD ["npm", "start"]
