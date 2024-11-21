@@ -24,6 +24,10 @@ pipeline {
             steps {
                 script {
                     sh '''
+                    echo "Cleaning up any existing containers..."
+                    docker stop ${APP_NAME}_container || true
+                    docker rm ${APP_NAME}_container || true
+
                     echo "Running Docker container..."
                     docker run -d -p 3000:3000 --name ${APP_NAME}_container ${APP_NAME}:latest
                     '''
@@ -33,7 +37,7 @@ pipeline {
     }
     post {
         always {
-            echo "Cleaning up..."
+            echo "Final cleanup..."
             sh 'docker stop ${APP_NAME}_container || true && docker rm ${APP_NAME}_container || true'
         }
     }
