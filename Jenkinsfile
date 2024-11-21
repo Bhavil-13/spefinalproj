@@ -35,10 +35,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            echo "Final cleanup..."
-            sh 'docker stop ${APP_NAME}_container || true && docker rm ${APP_NAME}_container || true'
-        }
-    }
 }
