@@ -1,0 +1,22 @@
+/* AddEmployeeComponent.css */
+
+.card {
+    background: linear-gradient(to bottom, #4b6cb7, #182848); /* Adjust colors as needed */
+    color: white;
+    border: 5px solid #4b6cb7; /* Border color */
+  }
+  
+  .form-label {
+    color: #f8f9fa; /* Label text color */
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Submit button background color */
+    border-color: #28a745; /* Submit button border color */
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Cancel button background color */
+    border-color: #dc3545; /* Cancel button border color */
+  }
+  
