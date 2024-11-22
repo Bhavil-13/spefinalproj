@@ -1,0 +1,47 @@
+version: '3'
+services:
+  mysqldb:
+    image: "mysql"
+    container_name: mysqldb
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ssg2bhavil
+      MYSQL_DATABASE: EMS
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+  
+  frontend:
+    image: bhavil13/frontend-image:latest
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+  
+  
+  spring-app:
+    image: "bhavil13/backend-image:latest"
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysqldb
+    container_name: backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/EMS?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ssg2bhavil
+    volumes:
+      - /logs:/logs
+    networks:
+      - my-network
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge
