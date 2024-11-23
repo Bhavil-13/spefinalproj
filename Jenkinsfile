@@ -134,8 +134,8 @@ pipeline {
         stage('Stage 4: Build frontend Docker image') {
             steps {
                 echo 'Building frontend Docker image'
-                dir('frontend1') {
-                    echo 'Changing to frontend1 directory'
+                dir('frontend') {
+                    echo 'Changing to frontend directory'
                     sh "docker build -t bhavil13/${frontend} ."
                 }
             }
