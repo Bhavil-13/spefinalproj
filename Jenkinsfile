@@ -145,13 +145,20 @@ pipeline {
             steps {
                 echo 'Pushing backend Docker image to DockerHub'
                 script {
-                    docker.withRegistry('', 'DockerCred') {
-                        sh 'docker push bhavil13/${backend}'
-                    }
+                    sh 'docker push bhavil13/${backend}'
                 }
             }
         }
-        
+        // stage('Stage 5: Push backend Docker image to DockerHub') {
+        //     steps {
+        //         echo 'Pushing backend Docker image to DockerHub'
+        //         script {
+        //             docker.withRegistry('', 'DockerCred') {
+        //                 sh 'docker push bhavil13/${backend}'
+        //             }
+        //         }
+        //     }
+        // }
         stage('Stage 6: Push frontend Docker image to DockerHub') {
             steps {
                 echo 'Pushing frontend Docker image to DockerHub'
