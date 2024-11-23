@@ -1,0 +1,8 @@
+STOP:
+
+sudo systemctl stop jenkins
+docker stop mysqldb
+sudo systemctl stop mysql
+docker stop $(docker ps -q)
+ps aux | grep spring-boot
+kill -9 <pid>
