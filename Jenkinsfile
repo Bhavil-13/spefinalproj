@@ -82,7 +82,7 @@ pipeline {
         //         }
         //     }
         // }
-                stage('Stage 0: Pull MySQL Docker Image') {
+        stage('Stage 0: Pull MySQL Docker Image') {
             steps {
                 echo 'Pulling MySQL Docker image from DockerHub'
                 script {
@@ -102,9 +102,9 @@ pipeline {
         stage('Stage 0.1: Run MySQL Container') {
             steps {
                 script {
-                    sh 'docker container stop mysqldb || true'
-                    sh 'docker container rm mysqldb || true'
-                    sh "docker run --name mysqldb -p ${MYSQL_PORT}:3306 -e MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} -d -v /path/on/host:/var/lib/mysql --network=${NETWORK} mysql:latest"
+                    sh  'docker container stop mysqldb'
+                    sh  'docker container rm mysqldb'
+                    sh  'docker run --name mysqldb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} -d -v "/var/lib/mysql" --network=${NETWORK} mysql:latest'
                 }
             }
         }
