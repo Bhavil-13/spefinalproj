@@ -58,12 +58,21 @@ pipeline {
             steps {
                 echo 'Pulling MySQL Docker image from DockerHub'
                 script {
-                    docker.withRegistry('', 'DockerCred') {
-                        docker.image("${mysqlImage}").pull()
-                    }
+                    docker.image("${mysqlImage}").pull()
                 }
             }
         }
+
+        // stage('Stage 0: Pull MySQL Docker Image') {
+        //     steps {
+        //         echo 'Pulling MySQL Docker image from DockerHub'
+        //         script {
+        //             docker.withRegistry('', 'DockerCred') {
+        //                 docker.image("${mysqlImage}").pull()
+        //             }
+        //         }
+        //     }
+        // }
         stage('Stage 0.1: Run MySQL Container') {
             steps {
                 script {

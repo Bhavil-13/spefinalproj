@@ -1948,3 +1948,8 @@ Caused by: java.lang.Throwable: null
 2024-11-23T01:30:39.795+05:30 DEBUG 726085 --- [http-nio-0.0.0.0-8082-exec-8] c.K.E.controller.EmployeeController      : Employee added
 2024-11-23T01:30:39.840+05:30  INFO 726085 --- [http-nio-0.0.0.0-8082-exec-9] c.K.E.controller.EmployeeController      : Fetching the list of employees from database
 2024-11-23T01:30:39.850+05:30  INFO 726085 --- [http-nio-0.0.0.0-8082-exec-10] c.K.E.controller.EmployeeController      : Fetching the list of employees from database
+2024-11-23T01:41:44.515+05:30  INFO 726085 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-11-23T01:41:44.518+05:30  INFO 726085 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-11-23T01:41:44.521+05:30  INFO 726085 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T01:41:44.524+05:30  INFO 726085 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-23T01:41:44.532+05:30  INFO 726085 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
